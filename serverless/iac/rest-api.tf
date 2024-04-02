@@ -12,6 +12,7 @@ resource "aws_api_gateway_deployment" "movies_api_deployment" {
             module.get_movie_method.id,
             module.get_movie_method.integration_id,
         ]))
+    }
 
     lifecicle {
        create_before_destroy = true

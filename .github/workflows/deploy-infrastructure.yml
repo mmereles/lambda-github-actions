@@ -10,7 +10,7 @@ on:
 
 defaults:
   run:
-    working-directory: /home/runner/work/lambda-github-actions
+    working-directory: /home/runner/work/lambda-github-actions/lambda-github-actions
 
 jobs:
   terraform:

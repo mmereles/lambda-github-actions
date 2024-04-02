@@ -1,0 +1,45 @@
+name: Deploy Infrastructure
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - iac/**/*
+      - .github/workflows/deploy-infra.yml
+
+defaults:
+  run:
+    working-directory: iac/
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository to the Github Actions runner
+      - name: Checkout
+        uses: actions/checkot@v3
+
+      - name: Configure AWS Credentials Action for GitHub Actions
+        uses: aws-actions/configre-aws-credentials@v4
+        with:
+          # AWS Region, e.g. us-east-2
+          aws-region: us-east-1
+          # AWS Access Key ID. Provide this key if you want to assume a role using access keys rather than a web identity token.
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          # AWS Secret Access Key. Required if aws-access-key-id is provided.
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # Install Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2.0.3
+
+      # Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      - name: Terraform Plan
+        run: terraform plan -out=plan -input=false -var-file="variables.tfvars"

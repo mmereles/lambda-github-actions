@@ -1,4 +1,4 @@
-resource 'aws_iam_role" "iam_for_lambda" {
+resource "aws_iam_role" "iam_for_lambda" {
     name                = "${var.name}-lambda-role"
     assume-role-policy  = data.aws_iam_policy_document.assume_role.json
 }

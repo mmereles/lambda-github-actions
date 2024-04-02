@@ -1,11 +1,11 @@
 name: Deploy Infrastructure
 on: workflow_dispatch
-  push: 
-    branches:
-      - main
-    paths:
-      - iac/**/*
-      - .github/workflows/deploy-infra.yml
+  #push: 
+   # branches:
+    #  - main
+    #paths:
+     # - iac/**/*
+      #- .github/workflows/deploy-infra.yml
 
 defaults:
   run:

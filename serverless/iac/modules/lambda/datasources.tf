@@ -27,9 +27,9 @@ data "aws_iam_policy_document" "lambda_logging" {
     }
 
     actions = [
-        "logs:CreateLogGroup"
-        "logs:CreateLogStream"
-        "logs:PutLogEvent"
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvent",
     ]
 
     resources = ["arn:aws:logs:*:*:*"]

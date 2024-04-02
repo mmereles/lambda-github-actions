@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: "list files"
+        run: ls
+        
       - name: Configure AWS Credentials Action for GitHub Actions
         uses: aws-actions/configure-aws-credentials@v4
         with:

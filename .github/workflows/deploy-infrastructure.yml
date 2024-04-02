@@ -33,7 +33,7 @@ jobs:
 
       # Install Terraform
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2.0.3
+        uses: hashicorp/setup-terraform@v3
 
       # Initialize Terraform
       - name: Terraform Init

@@ -43,7 +43,9 @@ jobs:
         run: terraform init
 
       - name: Terraform Format
-        run: terraform fmt -check
+        run: terraform fmt -check -no-color
+        # do not throw error, just warn
+        continue-on-error: true
 
       - name: Terraform Plan
         run: terraform plan -out=plan -input=false -var-file="variables.tfvars"

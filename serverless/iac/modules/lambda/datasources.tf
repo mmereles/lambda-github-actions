@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "assume_role" {
       identifiers = ["lambda.amazonaws.com"]
     }
 
-    actions = ["sts:assumeRole"]
+    actions = ["sts:AssumeRole"]
   }
 }
 

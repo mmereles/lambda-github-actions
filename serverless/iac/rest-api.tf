@@ -4,7 +4,6 @@ resource "aws_api_gateway_rest_api" "movies_api" {
 
 resource "aws_api_gateway_deployment" "movies_api_deployment" {
     rest_api_id = aws_api_gateway_rest_api.movies_api.id
-    stage_name  = aws_api_gateway_stage.live.stage_name
 
     triggers = {
         redeployment = sha1(jsonencode([

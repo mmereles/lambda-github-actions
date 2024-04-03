@@ -23,7 +23,7 @@ variable "resource_path" {
     type        = string
 }
 
-variable "lambda_funtion_name"{
+variable "lambda_function_name"{
     description = "The name of the lambda function that will be called"
     type        = string
 }

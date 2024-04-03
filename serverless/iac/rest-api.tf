@@ -13,8 +13,8 @@ resource "aws_api_gateway_deployment" "movies_api_deployment" {
         ]))
     }
 
-    lifecicle {
-       create_before_destroy = true
+    lifecycle {
+        create_before_destroy = true
     }
 }
 
